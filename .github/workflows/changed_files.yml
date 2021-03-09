@@ -10,7 +10,7 @@ jobs:
           RET=$(curl -s -X GET -G $URL | jq -r '.[] | .sha')
           echo $RET
           NUM=`echo $RET | wc -w`
-          if [ $NUM -eq 1 ]; then
+          if [ $((NUM % 2)) -eq 1 ]; then
             echo "ok"
           else
             echo "puding"
