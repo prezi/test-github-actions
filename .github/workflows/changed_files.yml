@@ -13,4 +13,5 @@ jobs:
             echo "ok"
           else
             echo "puding"
+            exit 1
           fi
