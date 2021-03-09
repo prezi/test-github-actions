@@ -1,3 +1,3 @@
 export class A {
-	private x = 1;
+	private x = 2;
 }
