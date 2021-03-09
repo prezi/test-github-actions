@@ -1,1 +1,1 @@
-export const zero = 0;
+export const zero = 1;
