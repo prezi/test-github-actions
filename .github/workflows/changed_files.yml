@@ -1,7 +1,7 @@
 name: check-changed-files
 on: [pull_request]
 jobs:
-  test-clone:
+  test-mergability:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello"
