@@ -1,5 +1,5 @@
-name: test-clone-actions
-on: [push]
+name: check-changed-files
+on: [pull-request]
 jobs:
   test-clone:
     runs-on: ubuntu-latest
