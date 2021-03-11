@@ -2,10 +2,13 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 async function main() {
+	console.log("Start action")
 	try {
 		const repo = core.getInput('repository');
 		const prNum = core.getInput('pr-number');
-		const octokit = github.getOctokit("https://github.com/prezi/test-github-actions/")
+		const myToken = core.getInput('myToken');
+		const octokit = github.getOctokit(myToken);
+		console.log("xxx my token: ", myToken)
 		// const octokit = new Octokit({baseUrl: "https://api.github.com/"});
 
 		const response = await octokit.request('GET /repos/{repo}/pulls/{pull_number}/files', {

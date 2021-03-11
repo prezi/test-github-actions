@@ -9,10 +9,13 @@ const core = __nccwpck_require__(14);
 const github = __nccwpck_require__(153);
 
 async function main() {
+	console.log("Start action")
 	try {
 		const repo = core.getInput('repository');
 		const prNum = core.getInput('pr-number');
-		const octokit = github.getOctokit("https://github.com/prezi/test-github-actions/")
+		const myToken = core.getInput('myToken');
+		const octokit = github.getOctokit(myToken);
+		console.log("xxx my token: ", myToken)
 		// const octokit = new Octokit({baseUrl: "https://api.github.com/"});
 
 		const response = await octokit.request('GET /repos/{repo}/pulls/{pull_number}/files', {
