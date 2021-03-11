@@ -11,7 +11,6 @@ const { Octokit } = __nccwpck_require__(56)
 
 async function main() {
 	try {
-		// `who-to-greet` input defined in action metadata file
 		const repo = core.getInput('repository');
 		const prNum = core.getInput('pr-number');
 		const octokit = new Octokit({baseUrl: "https://api.github.com/"});
