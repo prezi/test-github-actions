@@ -1,5 +1,14 @@
 name: 'HelloWorld Action'
 description: 'Hello world'
+inputs:
+  repository:  # id of input
+    description: 'Repository'
+    required: true
+    default: ''
+  pr-number:  # id of input
+    description: 'Pull request number'
+    required: true
+    default: 1
 author: 'szugyizalan'
 runs:
   using: 'node12'
