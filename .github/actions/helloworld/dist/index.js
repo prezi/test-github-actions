@@ -2,18 +2,19 @@ module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 926:
+/***/ 218:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const core = __nccwpck_require__(14);
 const github = __nccwpck_require__(153);
-const { octokit } = __nccwpck_require__(56)
+const { Octokit } = __nccwpck_require__(56)
 
 async function main() {
 	try {
 		// `who-to-greet` input defined in action metadata file
 		const repo = core.getInput('repository');
 		const prNum = core.getInput('pr-number');
+		const octokit = new Octokit({ auth: `personal-access-token123` });
 
 		const response = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', {
 			owner: 'octocat',
@@ -6011,6 +6012,6 @@ module.exports = require("zlib");;
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(926);
+/******/ 	return __nccwpck_require__(218);
 /******/ })()
 ;
