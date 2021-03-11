@@ -6,7 +6,8 @@ async function main() {
 	try {
 		const repo = core.getInput('repository');
 		const prNum = core.getInput('pr-number');
-		const octokit = new Octokit({baseUrl: "https://api.github.com/"});
+		const octokit = new Octokit();
+		// const octokit = new Octokit({baseUrl: "https://api.github.com/"});
 
 		const response = await octokit.request('GET /repos/{repo}/pulls/{pull_number}/files', {
 			repo: repo,
