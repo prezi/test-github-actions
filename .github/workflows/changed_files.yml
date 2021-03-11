@@ -4,7 +4,8 @@ jobs:
   test-mergability:
     runs-on: ubuntu-latest
     steps:
-      - uses: .github/actions/helloworld.js
+      - uses: actions/checkout@v1
+      - uses: .github/actions/helloworld
       - run: echo "hello"
       - run: |
           URL="https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files"

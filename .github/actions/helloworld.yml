@@ -1,0 +1,6 @@
+name: 'HelloWorld Action'
+description: 'Hello world'
+author: 'szugyizalan'
+runs:
+  using: 'node12'
+  main: 'helloworld.js'
