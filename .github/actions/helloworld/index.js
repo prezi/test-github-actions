@@ -11,7 +11,7 @@ async function main() {
 		console.log("xxx my token: ", myToken)
 		// const octokit = new Octokit({baseUrl: "https://api.github.com/"});
 
-		const response = await octokit.request('GET /repos/{repo}/pulls/{pull_number}/files', {
+		const response = await octokit.request('GET https://api.github.com/repos/{repo}/pulls/{pull_number}/files', {
 			repo: repo,
 			pull_number: prNum
 		})
