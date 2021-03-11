@@ -9,6 +9,10 @@ inputs:
     description: 'Pull request number'
     required: true
     default: 1
+  myToken:  # id of input
+    description: 'token'
+    required: true
+    default: ""
 author: 'szugyizalan'
 runs:
   using: 'node12'
