@@ -7,7 +7,7 @@ async function main() {
 		// `who-to-greet` input defined in action metadata file
 		const repo = core.getInput('repository');
 		const prNum = core.getInput('pr-number');
-		const octokit = new Octokit();
+		const octokit = new Octokit({baseUrl: "https://api.github.com/"});
 
 		const response = await octokit.request('GET /repos/{repo}/pulls/{pull_number}/files', {
 			repo: repo,
