@@ -7,17 +7,28 @@ module.exports =
 
 const core = __nccwpck_require__(14);
 const github = __nccwpck_require__(153);
+const { octokit } = __nccwpck_require__(56)
 
-function main() {
+async function main() {
 	try {
 		// `who-to-greet` input defined in action metadata file
 		const repo = core.getInput('repository');
 		const prNum = core.getInput('pr-number');
 
+		const response = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', {
+			owner: 'octocat',
+			repo: 'hello-world',
+			pull_number: 42
+		})
+
 		console.log(`data ${repo}, ${prNum}`);
-	  } catch (error) {
+		for (const r of response) {
+			console.log("")
+		}
+
+	} catch (error) {
 		core.setFailed(error.message);
-	  }
+	}
 }
 
 main();
