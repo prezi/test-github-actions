@@ -7,7 +7,7 @@ async function main() {
 		// `who-to-greet` input defined in action metadata file
 		const repo = core.getInput('repository');
 		const prNum = core.getInput('pr-number');
-		const octokit = new Octokit({ auth: `personal-access-token123` });
+		const octokit = new Octokit();
 
 		const response = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', {
 			owner: 'octocat',
