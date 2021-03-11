@@ -7,13 +7,12 @@ module.exports =
 
 const core = __nccwpck_require__(14);
 const github = __nccwpck_require__(153);
-const { Octokit } = __nccwpck_require__(56)
 
 async function main() {
 	try {
 		const repo = core.getInput('repository');
 		const prNum = core.getInput('pr-number');
-		const octokit = new Octokit({auth: process.env.PERSONAL_ACESSS_TOKEN});
+		const octokit = github.getOctokit("https://github.com/prezi/test-github-actions/")
 		// const octokit = new Octokit({baseUrl: "https://api.github.com/"});
 
 		const response = await octokit.request('GET /repos/{repo}/pulls/{pull_number}/files', {
