@@ -9,10 +9,9 @@ async function main() {
 		const prNum = core.getInput('pr-number');
 		const octokit = new Octokit();
 
-		const response = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', {
-			owner: 'octocat',
-			repo: 'hello-world',
-			pull_number: 42
+		const response = await octokit.request('GET /repos/{repo}/pulls/{pull_number}/files', {
+			repo: repo,
+			pull_number: prNum
 		})
 
 		console.log(`data ${repo}, ${prNum}`);
