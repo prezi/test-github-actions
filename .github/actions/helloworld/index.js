@@ -17,6 +17,7 @@ async function main() {
 			pull_number: prNum
 		})
 
+		console.log("response: ", response)
 
 		for (const r of response) {
 			console.log("-")
