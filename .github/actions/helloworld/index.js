@@ -18,11 +18,11 @@ async function main() {
 		})
 
 		console.log(response)
-		const responseJSON = JSON.parse(response);
+		// const responseJSON = JSON.parse(response);
 
 		// console.log("response: ", response)
 
-		for (const r of responseJSON) {
+		for (const r of response.data) {
 			console.log("-", r.filename);
 		}
 
