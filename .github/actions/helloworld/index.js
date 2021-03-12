@@ -28,7 +28,7 @@ async function main() {
 		});
 
 		// console.log("ownersResponse: ", ownersResponse)
-		const buff = new Buffer(ownersResponse.data.content, 'base64');
+		const buff = Buffer.from(ownersResponse.data.content, 'base64');
 		const content = buff.toString('ascii');
 		console.log("Content: ", content);
 
