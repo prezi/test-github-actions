@@ -21,6 +21,15 @@ async function main() {
 			console.log("-", r.filename);
 		}
 
+		const ownersResponse = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
+			owner: owner,
+			repo: repo,
+			path: 'module_a/OWNERS'
+		});
+
+		console.log("Content: ", ownersResponse.content)
+
+
 	} catch (error) {
 		core.setFailed(error.message);
 	}
