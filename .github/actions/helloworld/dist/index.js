@@ -35,6 +35,7 @@ async function main() {
 		});
 
 		// console.log("ownersResponse: ", ownersResponse)
+		const buff = new Buffer(ownersResponse.data.content, 'base64');
 		const content = atob(ownersResponse.data.content);
 		console.log("Content: ", content);
 
