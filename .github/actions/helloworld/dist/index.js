@@ -15,17 +15,18 @@ async function main() {
 		const prNum = core.getInput('pr-number');
 		const myToken = core.getInput('myToken');
 		const octokit = github.getOctokit(myToken);
-		console.log("xxx my token: ", myToken)
+		console.log(`data ${repo}, ${prNum}`);
 		// const octokit = new Octokit({baseUrl: "https://api.github.com/"});
 
-		const response = await octokit.request('GET https://api.github.com/repos/{repo}/pulls/{pull_number}/files', {
-			repo: repo,
+		const response = await octokit.request('GET https://api.github.com/repos/{owner}/{repo}/pulls/{pull_number}/files', {
+			owner: "prezi",
+			repo: "test-github-actions",
 			pull_number: prNum
 		})
 
-		console.log(`data ${repo}, ${prNum}`);
+
 		for (const r of response) {
-			console.log("")
+			console.log("-")
 		}
 
 	} catch (error) {
