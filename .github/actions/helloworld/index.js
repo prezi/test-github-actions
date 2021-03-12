@@ -17,6 +17,7 @@ async function main() {
 			pull_number: prNum
 		})
 
+		console.log(response)
 		const responseJSON = JSON.parse(response);
 
 		// console.log("response: ", response)
