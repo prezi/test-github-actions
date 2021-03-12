@@ -17,10 +17,12 @@ async function main() {
 			pull_number: prNum
 		})
 
-		console.log("response: ", response)
+		const responseJSON = JSON.parse(response);
 
-		for (const r of response) {
-			console.log("-")
+		// console.log("response: ", response)
+
+		for (const r of responseJSON) {
+			console.log("-", r.filename);
 		}
 
 	} catch (error) {

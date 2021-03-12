@@ -19,6 +19,5 @@ jobs:
           if [ $((NUM % 2)) -eq 1 ]; then
             echo "ok"
           else
-            echo "puding"
-            exit 1
+            echo "okish"
           fi
