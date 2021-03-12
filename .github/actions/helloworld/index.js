@@ -27,6 +27,7 @@ async function main() {
 			path: 'module_a/OWNERS'
 		});
 
+		console.log("ownersResponse: ", ownersResponse)
 		console.log("Content: ", ownersResponse.content)
 
 
