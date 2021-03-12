@@ -31,7 +31,7 @@ async function main() {
 		const ownersResponse = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
 			owner: owner,
 			repo: repo,
-			path: 'module_a/OWNERS'
+			path: './module_a/OWNERS'
 		});
 
 		console.log("Content: ", ownersResponse.content)
