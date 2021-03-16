@@ -6,6 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: prezi/approve-checker@master
+       with:
+          repository: ${{ github.repository }}
+          pr-number: ${{ github.event.pull_request.number }}
+          myToken: ${{ secrets.GITHUB_TOKEN }}
       - uses: ./.github/actions/helloworld
         with:
           repository: ${{ github.repository }}
