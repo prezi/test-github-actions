@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/prezi/approve-checker@master
+      - uses: actions/approve-checker@master
       - uses: ./.github/actions/helloworld
         with:
           repository: ${{ github.repository }}
