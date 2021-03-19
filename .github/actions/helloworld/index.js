@@ -9,7 +9,6 @@ async function main() {
 		const myToken = core.getInput('myToken');
 		const octokit = github.getOctokit(myToken);
 		console.log(`data ${repo}, ${prNum}`);
-		// const octokit = new Octokit({baseUrl: "https://api.github.com/"});
 
 		const response = await octokit.request('GET https://api.github.com/repos/{owner}/{repo}/pulls/{pull_number}/files', {
 			owner: owner,
@@ -24,10 +23,13 @@ async function main() {
 		const ownersResponse = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
 			owner: owner,
 			repo: repo,
-			path: './module_a/OWNERS'
+			path: 'module_a/OWNERS'
 		});
 
-		console.log("Content: ", ownersResponse.content)
+		// console.log("ownersResponse: ", ownersResponse)
+		const buff = Buffer.from(ownersResponse.data.content, 'base64');
+		const content = buff.toString('ascii');
+		console.log("Content: ", content);
 
 
 	} catch (error) {

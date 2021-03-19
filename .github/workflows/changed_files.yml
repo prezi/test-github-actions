@@ -5,11 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/helloworld
+      - uses: prezi/approve-checker@master
         with:
           repository: ${{ github.repository }}
           pr-number: ${{ github.event.pull_request.number }}
           myToken: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.pull_request.head.sha }}
+      # - uses: ./.github/actions/helloworld
+      #   with:
+      #     repository: ${{ github.repository }}
+      #     pr-number: ${{ github.event.pull_request.number }}
+      #     myToken: ${{ secrets.GITHUB_TOKEN }}
       - run: echo "hello"
       - run: |
           URL="https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files"

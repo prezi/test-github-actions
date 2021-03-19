@@ -31,10 +31,13 @@ async function main() {
 		const ownersResponse = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
 			owner: owner,
 			repo: repo,
-			path: './module_a/OWNERS'
+			path: 'module_a/OWNERS'
 		});
 
-		console.log("Content: ", ownersResponse.content)
+		// console.log("ownersResponse: ", ownersResponse)
+		const buff = Buffer.from(ownersResponse.data.content, 'base64');
+		const content = buff.toString('ascii');
+		console.log("Content: ", content);
 
 
 	} catch (error) {
