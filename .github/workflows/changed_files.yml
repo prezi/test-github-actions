@@ -9,8 +9,8 @@ jobs:
         with:
           repository: ${{ github.repository }}
           pr-number: ${{ github.event.pull_request.number }}
-          ref: ${{ github.event.push.ref }}
           myToken: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.pull_request.head.sha }}
       # - uses: ./.github/actions/helloworld
       #   with:
       #     repository: ${{ github.repository }}
