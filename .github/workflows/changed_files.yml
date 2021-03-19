@@ -1,29 +1,11 @@
 name: check-changed-files
-on: [pull_request]
+on: [pull_request, pull_request_review]
 jobs:
   test-mergability:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: prezi/approve-checker@master
         with:
           repository: ${{ github.repository }}
           pr-number: ${{ github.event.pull_request.number }}
           myToken: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.event.pull_request.pull_request.head.sha }}
-      # - uses: ./.github/actions/helloworld
-      #   with:
-      #     repository: ${{ github.repository }}
-      #     pr-number: ${{ github.event.pull_request.number }}
-      #     myToken: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo "hello"
-      - run: |
-          URL="https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files"
-          RET=$(curl -s -X GET -G $URL | jq -r '.[] | .sha')
-          echo $RET
-          NUM=`echo $RET | wc -w`
-          if [ $((NUM % 2)) -eq 1 ]; then
-            echo "ok"
-          else
-            echo "okish"
-          fi
