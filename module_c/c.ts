@@ -1,3 +1,3 @@
 export function c() {
-  return "foobarfoo";
+  return "foobarfoobar";
 }
