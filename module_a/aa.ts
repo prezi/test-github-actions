@@ -1,1 +1,1 @@
-const negyvenketto = 47;
+const negyvenketto = 48;
