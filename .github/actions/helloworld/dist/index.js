@@ -17,6 +17,8 @@ async function main() {
 		const headCommitSha =
 			github.context.payload.pull_request != null ? github.context.payload.pull_request.head.sha : null;
 		console.log("xxx: owner, repo, commit: ", owner, repo, headCommitSha)
+
+		console.log("xxx context: ", github.context)
 		await octokit.request("POST /repos/{owner}/{repo}/statuses/{sha}", {
 			owner: owner,
 			repo: repo,
