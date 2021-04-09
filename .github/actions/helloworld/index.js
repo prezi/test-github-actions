@@ -7,8 +7,8 @@ async function main() {
 		const [owner, repo] = core.getInput('repository').split("/");
 		const myToken = core.getInput('myToken');
 		const octokit = github.getOctokit(myToken);
-		const headCommitSha =
-			github.context.payload.pull_request != null ? github.context.payload.pull_request.head.sha : null;
+		const headCommitSha = github.context.payload.comment != null ?
+			github.context.payload.comment.body : null;
 		console.log("xxx: owner, repo, commit: ", owner, repo, headCommitSha)
 
 		console.log("xxx context: ", github.context)
