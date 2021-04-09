@@ -8,7 +8,8 @@ async function main() {
 		const myToken = core.getInput('myToken');
 		const octokit = github.getOctokit(myToken);
 		const headCommitSha =
-		github.context.payload.pull_request != null ? github.context.payload.pull_request.head.sha : null;
+			github.context.payload.pull_request != null ? github.context.payload.pull_request.head.sha : null;
+		console.log("xxx: owner, repo, commit: ", owner, repo, headCommitSha)
 		await octokit.request("POST /repos/{owner}/{repo}/statuses/{sha}", {
 			owner: owner,
 			repo: repo,
