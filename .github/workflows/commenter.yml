@@ -1,0 +1,13 @@
+name: do_sg_on_comment
+on: [issue_comment]
+jobs:
+  comment:
+    name: comment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./github/actions/helloworld/dist/index.js
+        with:
+          repository: ${{ github.repository }}
+          pr-number: ${{ github.event.pull_request.number }}
+          myToken: ${{ secrets.GITHUB_TOKEN }}
