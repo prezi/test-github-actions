@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./github/actions/helloworld/
+      - uses: .github/actions/helloworld/
         with:
           repository: ${{ github.repository }}
           pr-number: ${{ github.event.pull_request.number }}
