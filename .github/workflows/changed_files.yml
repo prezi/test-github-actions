@@ -9,4 +9,4 @@ jobs:
           repository: ${{ github.repository }}
           pr-number: ${{ github.event.pull_request.number }}
           myToken: ${{ secrets.GITHUB_TOKEN }}
-      - run: exit(1)
+      - run: exit 1
