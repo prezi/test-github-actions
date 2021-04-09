@@ -11,13 +11,12 @@ async function main() {
 			github.context.payload.comment.body : null;
 		console.log("xxx: owner, repo, commit: ", owner, repo, headCommitSha)
 
-		console.log("xxx context: ", github.context)
 		await octokit.request("POST /repos/{owner}/{repo}/statuses/{sha}", {
 			owner: owner,
 			repo: repo,
 			sha: headCommitSha,
 			state: "success",
-			context: "check-changed-files / test-mergability (pull_request)"
+			context: "code change manager"
 		});
 
 	} catch (error) {
