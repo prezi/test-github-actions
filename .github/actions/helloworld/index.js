@@ -16,7 +16,7 @@ async function main() {
 			owner: owner,
 			repo: repo,
 			sha: headCommitSha,
-			state: "success",
+			state: "failure",
 		});
 
 	} catch (error) {
