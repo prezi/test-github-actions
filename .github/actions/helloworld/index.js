@@ -16,7 +16,8 @@ async function main() {
 			owner: owner,
 			repo: repo,
 			sha: headCommitSha,
-			state: "failure",
+			state: "success",
+			context: "check-changed-files / test-mergability (pull_request)"
 		});
 
 	} catch (error) {
