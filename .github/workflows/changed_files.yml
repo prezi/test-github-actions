@@ -2,6 +2,7 @@ name: check-changed-files
 on: [pull_request, pull_request_review]
 jobs:
   test-mergability:
+    name: test-mergability
     runs-on: ubuntu-latest
     steps:
       - uses: prezi/approve-checker@master
