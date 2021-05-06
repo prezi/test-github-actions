@@ -5,7 +5,7 @@ jobs:
     name: test-mergability
     runs-on: ubuntu-latest
     steps:
-      - uses: prezi/approve-checker@use-base-branch
+      - uses: prezi/approve-checker@pages
         with:
           repository: ${{ github.repository }}
           pr-number: ${{ github.event.pull_request.number }}
